@@ -1,14 +1,13 @@
+import { Stack, useRouter, useSearchParams } from 'expo-router'
+import React, { useCallback, useState } from 'react'
 import {
-	StyleSheet,
-	Text,
-	View,
-	SafeAreaView,
-	ScrollView,
 	ActivityIndicator,
 	RefreshControl,
+	SafeAreaView,
+	ScrollView,
+	Text,
+	View,
 } from 'react-native'
-import React, { useCallback, useS, useState } from 'react'
-import { Stack, useRouter, useSearchParams } from 'expo-router'
 
 import {
 	Company,
@@ -21,6 +20,8 @@ import {
 
 import { COLORS, icons, SIZES } from '../../src/constants'
 import useFetch from '../../src/hook/useFetch'
+
+import ShareHeaderBtn from '../../src/components/share/ShareButton'
 
 const tabs = ['About', 'Qualifications', 'Responsibilities']
 
@@ -79,7 +80,14 @@ const JobDetails = () => {
 						/>
 					),
 					headerRight: () => (
-						<ScreenHeaderBtn iconUrl={icons.share} dimension='60%' />
+						<ShareHeaderBtn
+							iconUrl={icons.share}
+							dimension='60%'
+							url={
+								data[0]?.job_google_link ??
+								'https://careers.google.com/jobs/results'
+							}
+						/>
 					),
 					headerTitle: '',
 				}}

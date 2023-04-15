@@ -1,17 +1,18 @@
+import axios from 'axios'
+import { Stack, useRouter, useSearchParams } from 'expo-router'
 import React, { useEffect, useState } from 'react'
 import {
 	ActivityIndicator,
 	FlatList,
 	Image,
+	SafeAreaView,
+	Text,
 	TouchableOpacity,
 	View,
 } from 'react-native'
-import { Stack, useRouter, useSearchParams } from 'expo-router'
-import { Text, SafeAreaView } from 'react-native'
-import axios from 'axios'
 
-import { ScreenHeaderBtn, NearbyJobCard } from '../../src/components'
-import { COLORS, icons, SIZES } from '../../src/constants'
+import { NearbyJobCard, ScreenHeaderBtn } from '../../src/components'
+import { COLORS, SIZES, icons } from '../../src/constants'
 import styles from '../../src/styles/search'
 
 const JobSearch = () => {
